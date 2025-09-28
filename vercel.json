@@ -8,15 +8,19 @@
   "routes": [
     {
       "src": "/",
-      "dest": "index.html"
+      "dest": "static/index.html"
     },
     {
       "src": "/api/(.*)",
       "dest": "src/app.py"
     },
     {
+      "src": "/(.*\\.(css|js|png|jpg|gif|svg|ico))", 
+      "dest": "static/$1" 
+    },
+    {
       "src": "/(.*)",
-      "dest": "index.html"
+      "dest": "static/index.html"
     }
   ]
 }
