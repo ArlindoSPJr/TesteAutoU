@@ -1,12 +1,12 @@
 async function postJSON(url, data){
-  const api_url = "http://127.0.0.1:8000" + url;
+  const api_url = "https://teste-auto-u.vercel.app" + url;
   const res = await fetch(api_url, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data) });
   if(!res.ok){ throw new Error(await res.text()); }
   return await res.json();
 }
 
 async function postFile(url, file){
-  const api_url = "http://127.0.0.1:8000" + url;
+  const api_url = "https://teste-auto-u.vercel.app" + url;
   const fd = new FormData();
   fd.append('file', file);
   const res = await fetch(api_url, { method:'POST', body: fd });
