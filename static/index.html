@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Classificador de E-mails</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Classificador de E-mails</h1>
+      <p>Envie um arquivo .txt/.pdf ou cole o texto do e-mail.</p>
+    </header>
+
+    <section class="card">
+      <h2>Upload de Arquivo</h2>
+      <form id="upload-form">
+        <input type="file" id="file" name="file" accept=".txt,.pdf" />
+        <button type="submit">Processar Arquivo</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Texto do E-mail</h2>
+      <form id="text-form">
+        <textarea id="email-text" placeholder="Cole o conteudo do e-mail aqui..." rows="8"></textarea>
+        <button type="submit">Processar Texto</button>
+      </form>
+    </section>
+
+    <section class="card" id="result" hidden>
+      <h2>Resultado</h2>
+      <div class="result-grid">
+        <div>
+          <h3>Categoria</h3>
+          <p id="category"></p>
+        </div>
+        <div>
+          <h3>Confiança</h3>
+          <p id="confidence"></p>
+        </div>
+      </div>
+      <div class="reply">
+        <h3>Resposta Sugerida</h3>
+        <p id="reply"></p>
+      </div>
+    </section>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
