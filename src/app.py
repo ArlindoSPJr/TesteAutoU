@@ -11,6 +11,8 @@ import os
 import re
 from io import BytesIO
 
+
+
 try:
     from pypdf import PdfReader
     _PDF_AVAILABLE = True
@@ -19,15 +21,11 @@ except Exception:
 
 app = FastAPI(title="Classificador de E-mails")
 
-# Enable CORS for local dev and simple hosting scenarios
-origins = [
-    "http://127.0.0.1:5500",
-    "http://localhost:5500"
-]
+app.mount("/static", StaticFiles(directory="static", html=True), name="static")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,       # ou ["*"] durante dev se preferir
+    allow_origins=["*"],  # Em produção, especifique os domínios
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
